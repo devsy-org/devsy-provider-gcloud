@@ -4,8 +4,8 @@ import (
 	"context"
 	"os"
 
-	"github.com/skevetter/devpod-provider-gcloud/pkg/gcloud"
-	"github.com/skevetter/devpod-provider-gcloud/pkg/options"
+	"github.com/devsy-org/devsy-provider-gcloud/pkg/gcloud"
+	"github.com/devsy-org/devsy-provider-gcloud/pkg/options"
 	"github.com/spf13/cobra"
 )
 

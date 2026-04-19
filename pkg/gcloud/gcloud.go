@@ -11,8 +11,8 @@ import (
 
 	compute "cloud.google.com/go/compute/apiv1"
 	"cloud.google.com/go/compute/apiv1/computepb"
+	"github.com/devsy-org/devsy/pkg/client"
 	"github.com/googleapis/gax-go/v2/apierror"
-	"github.com/skevetter/devpod/pkg/client"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
 	"google.golang.org/api/googleapi"

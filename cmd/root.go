@@ -5,7 +5,7 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/skevetter/log"
+	"github.com/devsy-org/log"
 	"github.com/spf13/cobra"
 	"golang.org/x/crypto/ssh"
 )
@@ -13,7 +13,7 @@ import (
 // NewRootCmd returns a new root command.
 func NewRootCmd() *cobra.Command {
 	gcloudCmd := &cobra.Command{
-		Use:           "devpod-provider-gcloud",
+		Use:           "devsy-provider-gcloud",
 		Short:         "gcloud Provider commands",
 		SilenceErrors: true,
 		SilenceUsage:  true,
