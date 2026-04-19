@@ -9,10 +9,10 @@ import (
 	"strings"
 
 	"cloud.google.com/go/compute/apiv1/computepb"
-	"github.com/skevetter/devpod-provider-gcloud/pkg/gcloud"
-	"github.com/skevetter/devpod-provider-gcloud/pkg/options"
-	"github.com/skevetter/devpod-provider-gcloud/pkg/ptr"
-	"github.com/skevetter/devpod/pkg/ssh"
+	"github.com/devsy-org/devsy-provider-gcloud/pkg/gcloud"
+	"github.com/devsy-org/devsy-provider-gcloud/pkg/options"
+	"github.com/devsy-org/devsy-provider-gcloud/pkg/ptr"
+	"github.com/devsy-org/devsy/pkg/ssh"
 	"github.com/spf13/cobra"
 )
 
@@ -106,7 +106,7 @@ func buildMetadata(publicKey string) *computepb.Metadata {
 		Items: []*computepb.Items{
 			{
 				Key:   ptr.Ptr("ssh-keys"),
-				Value: ptr.Ptr("devpod:" + publicKey),
+				Value: ptr.Ptr("devsy:" + publicKey),
 			},
 		},
 	}

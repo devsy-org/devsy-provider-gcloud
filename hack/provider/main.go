@@ -14,8 +14,8 @@ import (
 
 const (
 	providerName = "gcloud"
-	githubOwner  = "skevetter"
-	githubRepo   = "devpod-provider-gcloud"
+	githubOwner  = "devsy-org"
+	githubRepo   = "devsy-provider-gcloud"
 )
 
 type Provider struct {
@@ -146,8 +146,8 @@ func buildProvider(cfg *buildConfig) (Provider, error) {
 	return Provider{
 		Name:         providerName,
 		Version:      cfg.version,
-		Description:  "DevPod on Google Cloud",
-		Icon:         "https://devpod.sh/assets/gcp.svg",
+		Description:  "Devsy on Google Cloud",
+		Icon:         "https://raw.githubusercontent.com/devsy-org/devsy/main/desktop/src/images/gcp.svg",
 		OptionGroups: buildOptionGroups(),
 		Options:      buildOptions(),
 		Agent:        agent,
@@ -309,7 +309,7 @@ func buildInstanceOptions() Options {
 		},
 		"TAG": {
 			Description: "A tag to attach to the instance.",
-			Default:     "devpod",
+			Default:     "devsy",
 		},
 		"DISK_SIZE": {
 			Description: "The disk size to use (GB).",
@@ -349,16 +349,16 @@ func buildAgentOptions() Options {
 			Default:     "5m",
 		},
 		"INJECT_GIT_CREDENTIALS": {
-			Description: "If DevPod should inject git credentials into the remote host.",
+			Description: "If Devsy should inject git credentials into the remote host.",
 			Default:     "true",
 		},
 		"INJECT_DOCKER_CREDENTIALS": {
-			Description: "If DevPod should inject docker credentials into the remote host.",
+			Description: "If Devsy should inject docker credentials into the remote host.",
 			Default:     "true",
 		},
 		"AGENT_PATH": {
-			Description: "The path where to inject the DevPod agent to.",
-			Default:     "/var/lib/toolbox/devpod",
+			Description: "The path where to inject the Devsy agent to.",
+			Default:     "/var/lib/toolbox/devsy",
 		},
 	}
 }
@@ -480,7 +480,7 @@ func joinURLPath(base, elem string) (string, error) {
 }
 
 func buildFilename(os, arch string) string {
-	filename := fmt.Sprintf("devpod-provider-%s-%s-%s", providerName, os, arch)
+	filename := fmt.Sprintf("devsy-provider-%s-%s-%s", providerName, os, arch)
 	if os == "windows" {
 		filename += ".exe"
 	}

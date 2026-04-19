@@ -51,8 +51,8 @@ func loadMachineOptions(opts *Options, withMachine, withFolder bool) error {
 		if err != nil {
 			return err
 		}
-		if !strings.HasPrefix(opts.MachineID, "devpod-") {
-			opts.MachineID = "devpod-" + opts.MachineID
+		if !strings.HasPrefix(opts.MachineID, "devsy-") {
+			opts.MachineID = "devsy-" + opts.MachineID
 		}
 	}
 	if withFolder {

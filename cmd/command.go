@@ -13,9 +13,9 @@ import (
 	"time"
 
 	"cloud.google.com/go/compute/apiv1/computepb"
-	"github.com/skevetter/devpod-provider-gcloud/pkg/gcloud"
-	"github.com/skevetter/devpod-provider-gcloud/pkg/options"
-	"github.com/skevetter/devpod/pkg/ssh"
+	"github.com/devsy-org/devsy-provider-gcloud/pkg/gcloud"
+	"github.com/devsy-org/devsy-provider-gcloud/pkg/options"
+	"github.com/devsy-org/devsy/pkg/ssh"
 	"github.com/spf13/cobra"
 )
 
@@ -72,7 +72,7 @@ func (cmd *CommandCmd) Run(ctx context.Context, options *options.Options) error 
 		defer t.cleanup()
 	}
 
-	sshClient, err := ssh.NewSSHClient("devpod", net.JoinHostPort(t.host, t.port), privateKey)
+	sshClient, err := ssh.NewSSHClient("devsy", net.JoinHostPort(t.host, t.port), privateKey)
 	if err != nil {
 		return fmt.Errorf("create ssh client: %w", err)
 	}
