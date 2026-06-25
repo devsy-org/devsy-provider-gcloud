@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/devsy-org/devsy-provider-gcloud/compare/v1.1.0...v1.1.1) (2026-06-25)
+
+
+### Bug Fixes
+
+* **lint:** extract repeated string literals into constants ([#4](https://github.com/devsy-org/devsy-provider-gcloud/issues/4)) ([9a6f47a](https://github.com/devsy-org/devsy-provider-gcloud/commit/9a6f47ad06f28a4c22b936b5468f8664aaae9252))
+
 ## [1.1.0](https://github.com/devsy-org/devsy-provider-gcloud/compare/v1.0.0...v1.1.0) (2026-04-19)
 
 
