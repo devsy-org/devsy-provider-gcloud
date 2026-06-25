@@ -16,6 +16,11 @@ const (
 	providerName = "gcloud"
 	githubOwner  = "devsy-org"
 	githubRepo   = "devsy-provider-gcloud"
+
+	trueValue = "true"
+
+	platformLinuxAMD64 = "linux/amd64"
+	platformLinuxARM64 = "linux/arm64"
 )
 
 type Provider struct {
@@ -325,7 +330,7 @@ func buildInstanceOptions() Options {
 		},
 		"PUBLIC_IP_ENABLED": {
 			Description: "Use a public ip to access the instance.",
-			Default:     "true",
+			Default:     trueValue,
 		},
 		"MACHINE_TYPE": {
 			Description: "The machine type to use.",
@@ -350,11 +355,11 @@ func buildAgentOptions() Options {
 		},
 		"INJECT_GIT_CREDENTIALS": {
 			Description: "If Devsy should inject git credentials into the remote host.",
-			Default:     "true",
+			Default:     trueValue,
 		},
 		"INJECT_DOCKER_CREDENTIALS": {
 			Description: "If Devsy should inject docker credentials into the remote host.",
-			Default:     "true",
+			Default:     trueValue,
 		},
 		"AGENT_PATH": {
 			Description: "The path where to inject the Devsy agent to.",
@@ -489,21 +494,27 @@ func buildFilename(os, arch string) string {
 
 func buildDir(platform string) string {
 	dirs := map[string]string{
-		"linux/amd64":   "build_linux_amd64_v1",
-		"linux/arm64":   "build_linux_arm64_v8.0",
-		"darwin/amd64":  "build_darwin_amd64_v1",
-		"darwin/arm64":  "build_darwin_arm64_v8.0",
-		"windows/amd64": "build_windows_amd64_v1",
+		platformLinuxAMD64: "build_linux_amd64_v1",
+		platformLinuxARM64: "build_linux_arm64_v8.0",
+		"darwin/amd64":     "build_darwin_amd64_v1",
+		"darwin/arm64":     "build_darwin_arm64_v8.0",
+		"windows/amd64":    "build_windows_amd64_v1",
 	}
 	return dirs[platform]
 }
 
 func allPlatforms() []string {
-	return []string{"linux/amd64", "linux/arm64", "darwin/amd64", "darwin/arm64", "windows/amd64"}
+	return []string{
+		platformLinuxAMD64,
+		platformLinuxARM64,
+		"darwin/amd64",
+		"darwin/arm64",
+		"windows/amd64",
+	}
 }
 
 func linuxPlatforms() []string {
-	return []string{"linux/amd64", "linux/arm64"}
+	return []string{platformLinuxAMD64, platformLinuxARM64}
 }
 
 func parseChecksums(path string) (map[string]string, error) {
