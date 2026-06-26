@@ -49,3 +49,4 @@ This provider has the following options:
 | SUBNETWORK     | false    | The subnetwork id to use.                                      |                                                      |
 | TAG            | false    | A tag to attach to the instance.                               | devsy                                                |
 | SERVICE_ACCOUNT| false    | A service account to attach to instance                        |                                                      |
+| PUBLIC_IP_ENABLED | false | Use a public ip to access the instance.                        | true                                                 |
