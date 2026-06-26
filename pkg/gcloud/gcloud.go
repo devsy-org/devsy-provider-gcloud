@@ -50,12 +50,12 @@ func NewClient(
 }
 
 func SetupEnvJson(ctx context.Context) error {
-	gcloudKeyFile := os.Getenv("DEVPOD_PROVIDER_GCLOUD_KEY_FILE")
+	gcloudKeyFile := os.Getenv("DEVSY_PROVIDER_GCLOUD_KEY_FILE")
 	if gcloudKeyFile != "" {
 		return os.Setenv("GOOGLE_APPLICATION_CREDENTIALS", gcloudKeyFile)
 	}
 
-	gcloudKey := os.Getenv("DEVPOD_PROVIDER_GCLOUD_KEY")
+	gcloudKey := os.Getenv("DEVSY_PROVIDER_GCLOUD_KEY")
 	if gcloudKey == "" {
 		gcloudKey = os.Getenv("GCLOUD_JSON_AUTH")
 	}
