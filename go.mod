@@ -4,7 +4,7 @@ go 1.25.8
 
 require (
 	cloud.google.com/go/compute v1.60.0
-	github.com/devsy-org/devsy v1.10.0-beta.36.0.20260625223048-32c704a42e7e
+	github.com/devsy-org/devsy v1.0.0
 	github.com/goccy/go-yaml v1.19.2
 	github.com/googleapis/gax-go/v2 v2.22.0
 	github.com/spf13/cobra v1.10.2
