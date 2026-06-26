@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/devsy-org/devsy-provider-gcloud/compare/v1.1.1...v1.2.0) (2026-06-26)
+
+
+### Miscellaneous Chores
+
+* release 1.2.0 ([#18](https://github.com/devsy-org/devsy-provider-gcloud/issues/18)) ([eed4c96](https://github.com/devsy-org/devsy-provider-gcloud/commit/eed4c96c5839293265b37de19ade494a606cdf0d))
+
 ## [1.1.1](https://github.com/devsy-org/devsy-provider-gcloud/compare/v1.1.0...v1.1.1) (2026-06-25)
 
 
