@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.4](https://github.com/devsy-org/devsy-provider-gcloud/compare/v1.2.3...v1.2.4) (2026-06-30)
+
+
+### Bug Fixes
+
+* **deps:** update module google.golang.org/api to v0.287.0 ([#36](https://github.com/devsy-org/devsy-provider-gcloud/issues/36)) ([498926e](https://github.com/devsy-org/devsy-provider-gcloud/commit/498926e1dafc1b83d2091ca2381eae8771b20380))
+
 ## [1.2.3](https://github.com/devsy-org/devsy-provider-gcloud/compare/v1.2.2...v1.2.3) (2026-06-27)
 
 
