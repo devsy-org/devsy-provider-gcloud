@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.6](https://github.com/devsy-org/devsy-provider-gcloud/compare/v1.2.5...v1.2.6) (2026-07-11)
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/googleapis/gax-go/v2 to v2.23.0 ([#40](https://github.com/devsy-org/devsy-provider-gcloud/issues/40)) ([f26f0db](https://github.com/devsy-org/devsy-provider-gcloud/commit/f26f0dbf90cefb5edc05ab418331503be5e2a871))
+
 ## [1.2.5](https://github.com/devsy-org/devsy-provider-gcloud/compare/v1.2.4...v1.2.5) (2026-07-11)
 
 
