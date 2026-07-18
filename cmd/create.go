@@ -11,7 +11,6 @@ import (
 	"cloud.google.com/go/compute/apiv1/computepb"
 	"github.com/devsy-org/devsy-provider-gcloud/pkg/gcloud"
 	"github.com/devsy-org/devsy-provider-gcloud/pkg/options"
-	"github.com/devsy-org/devsy-provider-gcloud/pkg/ptr"
 	"github.com/devsy-org/devsy/pkg/ssh"
 	"github.com/spf13/cobra"
 )
@@ -69,11 +68,11 @@ func buildInstance(options *options.Options) (*computepb.Instance, error) {
 	instance := &computepb.Instance{
 		Scheduling:        buildScheduling(options.MachineType),
 		Metadata:          buildMetadata(publicKey),
-		MachineType:       ptr.Ptr(machineTypeURI(options)),
+		MachineType:       new(machineTypeURI(options)),
 		Disks:             buildDisks(options, int64(diskSize)),
 		Tags:              buildInstanceTags(options),
 		NetworkInterfaces: buildNetworkInterfaces(options),
-		Name:              ptr.Ptr(options.MachineID),
+		Name:              new(options.MachineID),
 		ServiceAccounts:   buildServiceAccounts(options),
 	}
 
@@ -96,8 +95,8 @@ func loadPublicKey(machineFolder string) (string, error) {
 
 func buildScheduling(machineType string) *computepb.Scheduling {
 	return &computepb.Scheduling{
-		AutomaticRestart:  ptr.Ptr(true),
-		OnHostMaintenance: ptr.Ptr(getMaintenancePolicy(machineType)),
+		AutomaticRestart:  new(true),
+		OnHostMaintenance: new(getMaintenancePolicy(machineType)),
 	}
 }
 
@@ -105,8 +104,8 @@ func buildMetadata(publicKey string) *computepb.Metadata {
 	return &computepb.Metadata{
 		Items: []*computepb.Items{
 			{
-				Key:   ptr.Ptr("ssh-keys"),
-				Value: ptr.Ptr("devsy:" + publicKey),
+				Key:   new("ssh-keys"),
+				Value: new("devsy:" + publicKey),
 			},
 		},
 	}
@@ -122,16 +121,16 @@ func machineTypeURI(options *options.Options) string {
 func buildDisks(options *options.Options, diskSize int64) []*computepb.AttachedDisk {
 	return []*computepb.AttachedDisk{
 		{
-			AutoDelete: ptr.Ptr(true),
-			Boot:       ptr.Ptr(true),
-			DeviceName: ptr.Ptr(options.MachineID),
+			AutoDelete: new(true),
+			Boot:       new(true),
+			DeviceName: new(options.MachineID),
 			InitializeParams: &computepb.AttachedDiskInitializeParams{
-				DiskSizeGb: ptr.Ptr(diskSize),
-				DiskType: ptr.Ptr(fmt.Sprintf(
+				DiskSizeGb: new(diskSize),
+				DiskType: new(fmt.Sprintf(
 					"projects/%s/zones/%s/diskTypes/pd-balanced",
 					options.Project, options.Zone,
 				)),
-				SourceImage: ptr.Ptr(options.DiskImage),
+				SourceImage: new(options.DiskImage),
 			},
 		},
 	}
@@ -166,8 +165,8 @@ func getAccessConfig(options *options.Options) []*computepb.AccessConfig {
 	if options.PublicIP {
 		return []*computepb.AccessConfig{
 			{
-				Name:        ptr.Ptr("External NAT"),
-				NetworkTier: ptr.Ptr("STANDARD"),
+				Name:        new("External NAT"),
+				NetworkTier: new("STANDARD"),
 			},
 		}
 	}
@@ -194,17 +193,17 @@ func normalizeNetworkID(options *options.Options) *string {
 		strings.HasPrefix(network, "/") ||
 		strings.HasPrefix(network, "global/") ||
 		strings.Contains(network, "/networks/") {
-		return ptr.Ptr(network)
+		return new(network)
 	}
 
 	// {{project}}/{{name}} (exactly one slash, not starting with "/")
 	if strings.Count(network, "/") == 1 {
 		project, name, _ := strings.Cut(network, "/")
-		return ptr.Ptr(fmt.Sprintf("projects/%s/global/networks/%s", project, name))
+		return new(fmt.Sprintf("projects/%s/global/networks/%s", project, name))
 	}
 
 	// {{name}}
-	return ptr.Ptr(fmt.Sprintf("projects/%s/global/networks/%s", options.Project, network))
+	return new(fmt.Sprintf("projects/%s/global/networks/%s", options.Project, network))
 }
 
 func normalizeSubnetworkID(options *options.Options) *string {
@@ -225,20 +224,20 @@ func normalizeSubnetworkID(options *options.Options) *string {
 	switch len(parts) {
 	case 1:
 		// {{name}}
-		return ptr.Ptr(fmt.Sprintf("projects/%s/regions/%s/subnetworks/%s", project, region, sn))
+		return new(fmt.Sprintf("projects/%s/regions/%s/subnetworks/%s", project, region, sn))
 	case 2:
 		// {{region}}/{{name}}
-		return ptr.Ptr(
+		return new(
 			fmt.Sprintf("projects/%s/regions/%s/subnetworks/%s", project, parts[0], parts[1]),
 		)
 	case 3:
 		// {{project}}/{{region}}/{{name}}
-		return ptr.Ptr(
+		return new(
 			fmt.Sprintf("projects/%s/regions/%s/subnetworks/%s", parts[0], parts[1], parts[2]),
 		)
 	default:
 		// projects/{{project}}/regions/{{region}}/subnetworks/{{name}} or other full path
-		return ptr.Ptr(sn)
+		return new(sn)
 	}
 }
 
