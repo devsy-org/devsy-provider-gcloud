@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.10](https://github.com/devsy-org/devsy-provider-gcloud/compare/v1.2.9...v1.2.10) (2026-07-21)
+
+
+### Bug Fixes
+
+* **deps:** update module cloud.google.com/go/compute to v1.65.0 ([#53](https://github.com/devsy-org/devsy-provider-gcloud/issues/53)) ([9286484](https://github.com/devsy-org/devsy-provider-gcloud/commit/928648465add823cad487673aa501f76f6639f92))
+
 ## [1.2.9](https://github.com/devsy-org/devsy-provider-gcloud/compare/v1.2.8...v1.2.9) (2026-07-19)
 
 
