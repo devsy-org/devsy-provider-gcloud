@@ -3,7 +3,7 @@ module github.com/devsy-org/devsy-provider-gcloud
 go 1.26.0
 
 require (
-	cloud.google.com/go/compute v1.64.0
+	cloud.google.com/go/compute v1.65.0
 	github.com/devsy-org/devsy v1.5.2
 	github.com/goccy/go-yaml v1.19.2
 	github.com/googleapis/gax-go/v2 v2.23.0
