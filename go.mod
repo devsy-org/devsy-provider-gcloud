@@ -4,7 +4,7 @@ go 1.26.0
 
 require (
 	cloud.google.com/go/compute v1.65.0
-	github.com/devsy-org/devsy v1.11.0
+	github.com/devsy-org/devsy v1.11.1
 	github.com/goccy/go-yaml v1.19.2
 	github.com/googleapis/gax-go/v2 v2.23.0
 	github.com/spf13/cobra v1.10.2
@@ -91,7 +91,7 @@ require (
 	github.com/google/cel-go v0.27.0 // indirect
 	github.com/google/gnostic-models v0.7.1 // indirect
 	github.com/google/go-containerregistry v0.21.7 // indirect
-	github.com/google/go-containerregistry/pkg/authn/kubernetes v0.0.0-20260725002307-afc8f33a809d // indirect
+	github.com/google/go-containerregistry/pkg/authn/kubernetes v0.0.0-20260729013301-b757a3cd02a7 // indirect
 	github.com/google/s2a-go v0.1.9 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/googleapis/enterprise-certificate-proxy v0.3.19 // indirect
