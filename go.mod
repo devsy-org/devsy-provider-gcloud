@@ -4,7 +4,7 @@ go 1.26.3
 
 require (
 	cloud.google.com/go/compute v1.65.0
-	github.com/devsy-org/devsy v1.12.1
+	github.com/devsy-org/devsy v1.13.0
 	github.com/goccy/go-yaml v1.19.2
 	github.com/googleapis/gax-go/v2 v2.23.0
 	github.com/spf13/cobra v1.10.2
@@ -90,7 +90,7 @@ require (
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/google/cel-go v0.27.0 // indirect
 	github.com/google/gnostic-models v0.7.1 // indirect
-	github.com/google/go-containerregistry v0.21.7 // indirect
+	github.com/google/go-containerregistry v0.21.8 // indirect
 	github.com/google/go-containerregistry/pkg/authn/kubernetes v0.0.0-20260731170845-2ea098f4b134 // indirect
 	github.com/google/s2a-go v0.1.9 // indirect
 	github.com/google/uuid v1.6.0 // indirect
