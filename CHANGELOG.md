@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.21](https://github.com/devsy-org/devsy-provider-gcloud/compare/v1.2.20...v1.2.21) (2026-08-04)
+
+
+### Bug Fixes
+
+* **deps:** update module github.com/devsy-org/devsy to v1.14.0 ([#77](https://github.com/devsy-org/devsy-provider-gcloud/issues/77)) ([9e8ec54](https://github.com/devsy-org/devsy-provider-gcloud/commit/9e8ec544d442365ddc042330216808d3ec8429f4))
+
 ## [1.2.20](https://github.com/devsy-org/devsy-provider-gcloud/compare/v1.2.19...v1.2.20) (2026-08-03)
 
 
