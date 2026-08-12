@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.26](https://github.com/devsy-org/devsy-provider-gcloud/compare/v1.2.25...v1.2.26) (2026-08-12)
+
+
+### Bug Fixes
+
+* **deps:** update module golang.org/x/crypto to v0.55.0 ([#88](https://github.com/devsy-org/devsy-provider-gcloud/issues/88)) ([7186387](https://github.com/devsy-org/devsy-provider-gcloud/commit/71863877272b5e2629fd37eb4466330ccc3d32c8))
+
 ## [1.2.25](https://github.com/devsy-org/devsy-provider-gcloud/compare/v1.2.24...v1.2.25) (2026-08-09)
 
 
