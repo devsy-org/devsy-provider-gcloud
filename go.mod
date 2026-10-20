@@ -1,6 +1,6 @@
 module github.com/devsy-org/devsy-provider-gcloud
 
-go 1.26.3
+go 1.26.10
 
 require (
 	cloud.google.com/go/compute v1.66.0
