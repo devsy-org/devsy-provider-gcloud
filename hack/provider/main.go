@@ -152,7 +152,7 @@ func buildProvider(cfg *buildConfig) (Provider, error) {
 		Name:         providerName,
 		Version:      cfg.version,
 		Description:  "Devsy on Google Cloud",
-		Icon:         "https://raw.githubusercontent.com/devsy-org/devsy/main/desktop/src/images/gcp.svg",
+		Icon:         "https://raw.githubusercontent.com/devsy-org/devsy/main/desktop/src/renderer/public/icons/providers/gcp.svg",
 		OptionGroups: buildOptionGroups(),
 		Options:      buildOptions(),
 		Agent:        agent,
