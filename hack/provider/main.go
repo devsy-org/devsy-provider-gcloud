@@ -175,6 +175,9 @@ func buildOptionGroups() []OptionGroup {
 		{
 			Name: "GCloud options",
 			Options: []string{
+				"PROJECT",
+				"ZONE",
+				"KEY_FILE",
 				"DISK_SIZE",
 				"DISK_IMAGE",
 				"MACHINE_TYPE",
@@ -220,10 +223,14 @@ func buildCoreOptions() Options {
 			Command:     `gcloud config list --quiet --verbosity=error --format "value(core.project)" 2>/dev/null || true`,
 		},
 		"ZONE": {
-			Description: "The google cloud zone to create the VM in. E.g. europe-west1-d.",
+			Description: "The Google Cloud zone to create the VM in, e.g. europe-west1-d.",
 			Required:    true,
 			Command:     zoneCommand(),
 			Suggestions: defaultZones,
+		},
+		"KEY_FILE": {
+			Description: "Path to a service-account JSON key.",
+			Local:       true,
 		},
 	}
 }
