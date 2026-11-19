@@ -50,12 +50,12 @@ func NewClient(
 }
 
 func SetupEnvJson(ctx context.Context) error {
-	gcloudKeyFile := os.Getenv("DEVSY_PROVIDER_GCLOUD_KEY_FILE")
+	gcloudKeyFile := credentialValue("KEY_FILE")
 	if gcloudKeyFile != "" {
 		return os.Setenv("GOOGLE_APPLICATION_CREDENTIALS", gcloudKeyFile)
 	}
 
-	gcloudKey := os.Getenv("DEVSY_PROVIDER_GCLOUD_KEY")
+	gcloudKey := credentialValue("KEY")
 	if gcloudKey == "" {
 		gcloudKey = os.Getenv("GCLOUD_JSON_AUTH")
 	}
@@ -64,6 +64,21 @@ func SetupEnvJson(ctx context.Context) error {
 	}
 
 	return writeKeyFile(gcloudKey)
+}
+
+// credentialValue reads a provider option. Devsy injects the resolved value
+// under the bare option name, and that wins over the parent environment.
+// The scoped name matches cmd/provider Configure: upper case, hyphens kept.
+func credentialValue(name string) string {
+	if value := os.Getenv(name); value != "" {
+		return value
+	}
+
+	providerName := os.Getenv("PROVIDER_ID")
+	if providerName == "" {
+		providerName = "gcloud"
+	}
+	return os.Getenv(strings.ToUpper("DEVSY_PROVIDER_" + providerName + "_" + name))
 }
 
 func writeKeyFile(gcloudKey string) error {
