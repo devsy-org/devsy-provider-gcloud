@@ -24,6 +24,12 @@ Be aware that authentication is obtained using `gcloud` CLI tool, take a look
 [here](https://developers.google.com/accounts/docs/application-default-credentials)
 for more information.
 
+### Logging
+
+Provider diagnostics are written to stderr as JSON by default. Set `DEVSY_LOG_LEVEL` to `error`, `warn`, `info`, `debug`, or `trace`. The standalone default is `info`. Devsy supplies its effective level when it starts the provider.
+
+Set `DEVSY_LOG_FORMAT` to `json`, `text`, `plain`, or `logfmt` to select a format. The default and `auto` use JSON for provider diagnostics. Level and format values are case insensitive. Invalid values stop the command before it accesses Google Cloud.
+
 ### Creating your first workspace with gcloud
 
 After the initial setup, just use:
